@@ -1,0 +1,21 @@
+---
+- hosts: local
+  tasks:
+  - name: Set Hostname
+    hostname:
+      name: hostname_by_ansible
+  - name: Add group staffs
+    group:
+      name: staffs
+  - name: Add the user 'mac' and 'bob'
+    user:
+      name: "{{ userlist }}"
+      group: staffs
+    vars:
+      userlist:
+      - mac
+      - bob
+  - name: install the dummy rpm from a local path
+    yum:
+      name: /rpmbuild/RPMS/noarch/my-monitoring-agent-1.0-1.noarch.rpm
+      state: present
