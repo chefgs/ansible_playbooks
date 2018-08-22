@@ -1,6 +1,7 @@
 # ansible_playbooks
 
-## Playbook functionality
+## Playbook functionality details
+### Playbook : cloud_init_playbook
 Below configurations are set when running the Playbook 
 - Set a hostname on operating system level 
 - Install a package called “my-monitoring-agent”. Assume that the package repository is already configured 
