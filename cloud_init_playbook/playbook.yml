@@ -1,21 +1,26 @@
 ---
 - hosts: local
+  vars:
+    host_name: 'hostname_set_by_ansible'
   tasks:
   - name: Set Hostname
     hostname:
-      name: hostname_by_ansible
+      name: host_name
   - name: Add group staffs
     group:
       name: staffs
   - name: Add the user 'mac' and 'bob'
     user:
-      name: "{{ userlist }}"
+      name: "{{ item }}"
       group: staffs
-    vars:
-      userlist:
+    loop:
       - mac
       - bob
   - name: install the dummy rpm from a local path
     yum:
       name: /rpmbuild/RPMS/noarch/my-monitoring-agent-1.0-1.noarch.rpm
       state: present
+  - name: Template replaces /etc/mon-agent/agent.config
+    template:
+      src: agent.config.j2
+      dest: /etc/mon-agent/agent.config
