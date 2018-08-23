@@ -20,6 +20,10 @@
     yum:
       name: /rpmbuild/RPMS/noarch/my-monitoring-agent-1.0-1.noarch.rpm
       state: present
+  - name: Create directory /etc/mon-agent/
+    directory:
+      file: path=/etc/mon-agent/ state=directory
+      mode: 0755
   - name: Template replaces /etc/mon-agent/agent.config
     template:
       src: agent.config.j2
