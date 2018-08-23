@@ -1,5 +1,7 @@
 ---
 - hosts: local
+  #vars:
+  #  host_name="host_set_by_ansible"
   tasks:
   - name: Set Hostname
     hostname:
