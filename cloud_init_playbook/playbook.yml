@@ -1,11 +1,9 @@
 ---
 - hosts: local
-  vars:
-    host_name: 'hostname_set_by_ansible'
   tasks:
   - name: Set Hostname
     hostname:
-      name: host_name
+      name: "{{ host_name }}"
   - name: Add group staffs
     group:
       name: staffs
