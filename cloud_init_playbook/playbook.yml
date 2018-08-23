@@ -1,7 +1,7 @@
 ---
 - hosts: local
-  #vars:
-  #  host_name="host_set_by_ansible"
+  vars:
+    host_name: "host_set_by_ansible"
   tasks:
   - name: Set Hostname
     hostname:
@@ -21,8 +21,8 @@
       name: /rpmbuild/RPMS/noarch/my-monitoring-agent-1.0-1.noarch.rpm
       state: present
   - name: Create directory /etc/mon-agent/
-    file: 
-      path: /etc/mon-agent/ 
+    file:
+      path: /etc/mon-agent/
       state: directory
       mode: 0755
   - name: Template replaces /etc/mon-agent/agent.config
