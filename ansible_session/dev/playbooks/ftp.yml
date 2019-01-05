@@ -1,0 +1,8 @@
+---
+- name: Install vsftpd on all nodes
+  hosts: all,db,bkup
+  tasks:
+   - name: Install vsftpd
+     yum:
+      name=vsftpd
+      state=latest

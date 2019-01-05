@@ -1,0 +1,7 @@
+ansiblenode1
+ansiblenode2
+
+[db]
+ansiblenode1
+[bkup]
+ansiblenode2

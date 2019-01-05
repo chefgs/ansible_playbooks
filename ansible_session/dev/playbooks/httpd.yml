@@ -1,0 +1,8 @@
+---
+- name: Install htpd on all the nodes
+  hosts: all
+  tasks:
+   - name: Install httpd
+     yum:
+      name=httpd
+      state=latest
