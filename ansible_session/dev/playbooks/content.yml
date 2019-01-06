@@ -1,0 +1,9 @@
+---
+- name: Copy content to a config file
+  hosts: all
+  tasks:
+   - name: Copying the file content
+     copy:
+      content: "Sample content"
+      dest: /var/tmp/sample-content.file
+...

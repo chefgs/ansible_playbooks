@@ -1,0 +1,9 @@
+---
+- name: Backup sudo file in remote node
+  hosts: all
+  tasks:
+   - name: Backup sudo file
+     copy:
+      src: /etc/sudoers
+      dest: /var/tmp/sudoers.bk
+      remote_src: yes

@@ -1,0 +1,10 @@
+---
+- name: Line in file sample
+  hosts: all
+  tasks:
+   - name: Change line
+     lineinfile:
+       path: /var/tmp/sample_dir/samplefile.txt
+       regexp: "Sample"
+       line: "**Sample modified**"
+...

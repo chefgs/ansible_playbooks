@@ -1,0 +1,8 @@
+---
+- name: Copy file using include_tasks
+  hosts: all
+  tasks:
+   - name: Include task from another yml
+     include_tasks: file.yml
+   - name:
+

@@ -1,0 +1,31 @@
+---
+- name: Variable sample
+  hosts: all
+  vars:
+   package1: httpd
+   package_val: 
+    - wget
+    - git
+   package_val2: 
+    - memcached
+  tasks:
+   - name: Install "{{ package1 }}"
+     yum:
+      name: "{{ package1 }}"
+      state: latest
+   - name: Install "{{ package_val[0] }}"
+     yum:
+      name: "{{ package_val[0] }}"
+      state: latest
+   - name: Install "{{ package_val[1] }}"
+     yum:
+      name: "{{ package_val[1] }}"
+      state: latest
+   - name: Install packages
+     yum:
+      name: "{{ item }}"
+      state: latest
+      with_item:
+       - "{{ package_val2 }}"
+
+...
