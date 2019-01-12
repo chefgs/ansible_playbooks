@@ -4,7 +4,7 @@
   tasks:
    - name: check the package
      command: "rpm -qa httpd"
-     var: rpm_out
+     register: rpm_out
    - name: Install httpd
      yum:
       name: httpd
@@ -20,9 +20,9 @@
      register: service_state
      listen: service
    - debug:
-      var: var1
+      var: service_state
    - debug:
       msg: "Restart sucess"
-     when: service_State != ""
+     when: service_state != ""
      listen: service
         

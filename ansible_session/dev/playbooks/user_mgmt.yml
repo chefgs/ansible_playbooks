@@ -1,0 +1,39 @@
+---
+# Create vault playbook
+# ansible-vault create userr_mgmt.yml
+# Enter password when prompted
+# Add the password in .vaultfile
+# Edit / Execute playbook by providing the .vaultfile
+# ansible-vault edit userr_mgmt.yml --vault-id=.vultpasswd
+#  ansible-playbook userr_mgmt.yml --vault-id=.vultpasswd --syntax
+#  ansible-playbook userr_mgmt.yml --vault-id=.vultpasswd -vv
+- name: Vault assigment
+  hosts: all
+  vars:
+    - username: 'opsuser'
+    - usergrp: 'opsadmin'
+    - sudoer_path: '/etc/sudoers'
+  tasks:
+   - name: Add group staffs
+     group:
+       name: opsadmin
+   - name: Add the user 'opsuser'
+     user:
+       name: "{{ username }}"
+       password: 'defaultpwd'
+       group: opsadmin
+   - name: Backup sudoer file
+     copy:
+       src: "{{ sudoer_path }}"
+       dest: '/var/tmp/sudoers.bk'
+       backup: yes
+       remote_src: yes
+   - name: Edit sudoer file
+     lineinfile:
+       path: "{{ sudoer_path }}"
+       line: "{{ username }} ALL=(ALL) NOPASSWD:ALL"
+       regex: '^ansible ALL=(ALL) '
+       insertafter: '^ansible ALL=(ALL) '
+       # insertbefore: '^## Allows members '
+...
+

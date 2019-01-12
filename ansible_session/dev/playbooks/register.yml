@@ -1,0 +1,19 @@
+---
+- name: Register code sample
+  hosts: all
+  vars_prompt:
+   - name: pack_name
+     prompt: "Enter rpm name"
+     private: no
+   - name: reg_var
+     prompt: "Enter reg_var name"
+     private: no
+  tasks:
+   - name: Package query
+     command: "rpm -qa {{ pack_name }}"
+     register: "{{ reg_var }}"
+   - debug:
+      msg: "The register output for {{ inventory_hostname }} is {{ reg_var }}::"
+   - debug:
+      var: "{{ reg_var }}"
+...

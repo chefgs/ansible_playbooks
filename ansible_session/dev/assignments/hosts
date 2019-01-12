@@ -2,6 +2,7 @@ ansiblenode1
 ansiblenode2
 
 [db]
-ansiblenode1
-[ws]
 ansiblenode2
+
+[webserver]
+ansiblenode1

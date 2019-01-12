@@ -1,0 +1,24 @@
+[ansible@ansiblehost assignments]$ pwd
+/home/ansible/dev/assignments
+[ansible@ansiblehost assignments]$ ls -ltr
+total 8
+-rw-rw-r--. 1 ansible ansible 124 Jan  7 18:11 ansible.cfg
+-rw-rw-r--. 1 ansible ansible  27 Jan  7 18:15 hosts
+[ansible@ansiblehost assignments]$ cat hosts 
+ansiblenode1
+ansiblenode2
+
+[ansible@ansiblehost assignments]$ ansible all --list
+  hosts (2):
+      ansiblenode1
+          ansiblenode2
+[ansible@ansiblehost assignments]$ cat ansible.cfg 
+[defaults]
+
+inventory = hosts
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False

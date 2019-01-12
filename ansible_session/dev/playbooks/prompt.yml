@@ -1,0 +1,13 @@
+---
+- name: Prompt example
+  hosts: all
+  vars_prompt:
+   - name: package
+     prompt: "Enter package name: "
+     private: no
+  tasks:
+   - name: Prompt package and install
+     yum:
+      name: "{{ package }}"
+      state: installed
+...

@@ -6,8 +6,7 @@
    package_val: 
     - wget
     - git
-   package_val2: 
-    - memcached
+   packageval2: [memcached]
   tasks:
    - name: Install "{{ package1 }}"
      yum:
@@ -25,7 +24,9 @@
      yum:
       name: "{{ item }}"
       state: latest
-      with_item:
-       - "{{ package_val2 }}"
+      with_items:
+       - "{{ memcached }}"
+     tags:
+       - memcached
 
 ...
