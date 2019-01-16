@@ -1,0 +1,35 @@
+---
+- name: create user and groups
+  hosts: all
+  roles:
+   - examfun
+  tasks:
+   - name: create group
+     group:
+      name: "{{ item }}"
+      state: present
+     with_items:
+      - staff
+      - guests
+      - webclients
+   - name: create STAFF USER
+     user:
+      name: "{{ item }}"
+      state: present
+      groups: staff,webclients
+     with_items:
+      - "{{ staff }}"
+   - name: create guests USER
+     user:
+      name: "{{ item }}"
+      state: present
+      groups: guests,webclients
+     with_items:
+      - "{{ guests }}"
+   - name: revoke the USER
+     user:
+      name: "{{ item }}"
+      state: absent
+     with_items:
+      - "{{ revoke }}"
+...

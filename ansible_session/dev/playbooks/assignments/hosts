@@ -1,0 +1,8 @@
+ansiblenode1
+ansiblenode2
+
+[db]
+ansiblenode2
+
+[webserver]
+ansiblenode1

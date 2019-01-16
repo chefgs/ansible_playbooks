@@ -1,0 +1,6 @@
+---
+- name: Role sample two
+  hosts: all
+  roles:
+   - myvhost
+...

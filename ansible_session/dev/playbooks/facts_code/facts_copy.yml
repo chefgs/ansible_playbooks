@@ -1,0 +1,11 @@
+---
+- name: Copy login file has facts to replace motd
+  hosts: all
+  vars:
+    template_path: "/home/ansible/dev/facts_code/loginfile.j2"
+  tasks:
+   - name: Copy login file content motd
+     template:
+       src: "{{ template_path }}"
+       dest: /etc/motd
+...
