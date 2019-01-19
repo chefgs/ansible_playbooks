@@ -1,6 +1,6 @@
 ---
 - name: Install htpd on all the nodes
-  hosts: devhosts
+  hosts: ansiblenode1
   tasks:
    - name: check the package
      command: "rpm -qa httpd"
