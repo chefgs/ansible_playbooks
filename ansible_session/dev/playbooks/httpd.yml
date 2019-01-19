@@ -4,7 +4,7 @@
   tasks:
    - name: check the package
      command: "rpm -qa httpd"
-     var: rpm_out
+       var: rpm_out
    - name: Install httpd
      yum:
       name: httpd
