@@ -1,6 +1,6 @@
 ---
 - name: Install htpd on all the nodes
-  hosts: ws
+  hosts: devhosts
   tasks:
    - name: check the package
      command: "rpm -qa httpd"
