@@ -1,6 +1,0 @@
----
-- name: Role sample
-  hosts: all
-  roles:
-   - myfirewall
-...

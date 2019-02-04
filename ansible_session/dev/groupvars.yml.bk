@@ -1,9 +1,0 @@
----
-- hosts: all
-  tasks:
-   - name: Install package
-     become: true
-     become_method: sudo
-     become_user: root
-     yum: name=git state=latest
-...

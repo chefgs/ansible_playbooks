@@ -1,5 +1,0 @@
----
-ansible_ssh_user: ansible
-ansible_ss_pass: ajay2010
-ansible_become_pass: ansible
-...

@@ -1,9 +1,0 @@
----
-- name: Google monitor
-  hosts: all
-  tasks:
-   - name: monitoring google url
-     uri:
-       url: https://www.google.co.in
-       return_content: yes
-...

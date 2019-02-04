@@ -1,9 +1,0 @@
----
-- name: Fetch remote sudoer file to local
-  hosts: all
-  tasks:
-   - name: Fetch sudoers file from remote node
-     fetch:
-      src: /var/tmp/sudoers.bk
-      dest: /var/tmp/
-      flat: yes

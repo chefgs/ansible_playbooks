@@ -1,8 +1,0 @@
----
-- name: Create a file into client nodes
-  hosts: localhost
-  tasks:
-   - name: Create file
-     file:
-      path: /home/ansible/sample2.txt
-      state: touch

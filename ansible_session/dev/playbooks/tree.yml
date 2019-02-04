@@ -1,9 +1,0 @@
----
-- name: Vault testing playbook
-  hosts: all
-  tasks:
-   - name: Install tree
-     yum:
-      name: tree
-      state: latest
-...
