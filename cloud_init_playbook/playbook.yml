@@ -8,7 +8,7 @@
       name: "{{ host_name }}"
   - name: Add group staffs
     group:
-      name: my-staff
+      name: staffs
   - name: Add the user 'mac' and 'bob'
     user:
       name: "{{ item }}"
